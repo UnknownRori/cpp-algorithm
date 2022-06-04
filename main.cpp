@@ -1,10 +1,7 @@
 #include <iostream>
-#include <random>
 #include <chrono>
 #include "./include/unknownrori.h"
 #include "./include/sorting.h"
-
-// #define time (std::chrono::_V2::system_clock::time_point);
 
 int main()
 {
@@ -17,7 +14,7 @@ int main()
     // int data[] = {1, 2, 3, 6, 5, 4, 8, 7, 9, 10};
 
     /* Starting the counter */
-    std::chrono::_V2::system_clock::time_point start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::high_resolution_clock::now();
 
     /*---------------*\
     |Sorting Algorithm|
