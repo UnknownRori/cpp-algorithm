@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <chrono>
-#include "../include/algorithm.h"
+#include "../include/sorting.h"
 #include "../include/unknownrori.h"
 
 /*---------------*\
