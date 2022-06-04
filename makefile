@@ -1,0 +1,24 @@
+OUTPUT = main
+COMPILER = g++
+
+MAIN = ./main.cpp
+
+UNKNOWNRORI_SRC = ./src/unknownrori.cpp
+ALGORITHM_SRC = ./src/algorithm.cpp
+
+UNKNOWNRORI_LIBS = ./unknownrori.o
+ALGORITHM_LIBS = ./algorithm.o
+
+all: run
+
+run: MAIN
+	./main
+
+UNKNOWNRORI_LIBS:
+	$(COMPILER) $(UNKNOWNRORI_SRC) -shared -o $(UNKNOWNRORI_LIBS)
+
+LIBS: UNKNOWNRORI_LIBS
+	$(COMPILER) $(ALGORITHM_SRC) $(UNKNOWNRORI_LIBS) -shared -o $(ALGORITHM_LIBS)
+
+MAIN: LIBS UNKNOWNRORI_LIBS
+	$(COMPILER) $(MAIN) $(ALGORITHM_LIBS) $(UNKNOWNRORI_LIBS) -o $(OUTPUT)
