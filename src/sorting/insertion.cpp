@@ -1,5 +1,3 @@
-#include <iostream>
-#include <chrono>
 #include "../../include/sorting.h"
 #include "../../include/unknownrori.h"
 
@@ -9,12 +7,8 @@
  * @param data
  * @param length
  */
-void insertion_sort(int *data, int length, bool print)
+void insertion_sort(int *data, int length)
 {
-    if (!print)
-        print_array(data, length);
-
-    auto start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < length; i++)
     {
         int j = i;
@@ -22,19 +16,6 @@ void insertion_sort(int *data, int length, bool print)
         {
             swap(data, j, j - 1);
             j--;
-            if (print)
-                print_array(data, length);
         }
     }
-
-    auto end = std::chrono::high_resolution_clock::now();
-    auto elapse = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-
-    if (!print)
-        print_array(data, length);
-
-    std::cout << "Insertion Sort time execution : "
-              << elapse.count()
-              << " ms"
-              << "\n";
 }
