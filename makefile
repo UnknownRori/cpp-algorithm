@@ -4,7 +4,7 @@ COMPILER = g++
 MAIN = ./main.cpp
 
 UNKNOWNRORI_SRC = ./src/unknownrori.cpp
-SORTING_SRC = ./src/sorting.cpp
+SORTING_SRC = ./src/sorting/bubble.cpp ./src/sorting/insertion.cpp
 
 UNKNOWNRORI_LIBS = ./unknownrori.o
 SORTING_LIBS = ./sorting.o
