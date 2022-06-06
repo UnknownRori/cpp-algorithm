@@ -38,7 +38,7 @@ int main()
               << " ms"
               << "\n";
 
-    pause(1000);
+    // pause(1000);
 
-    return 0; // Exit success
+    return EXIT_SUCCESS;
 }
