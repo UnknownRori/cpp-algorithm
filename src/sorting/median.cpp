@@ -34,29 +34,27 @@ void median_sort(int *data, int start, int end)
      * 1 2 3 4 5 6 7 8 9
      *       ^-^ Median on the right after got incremented because odd number
      */
-    int length = (end - start);
-    if (length < 5)
-    {
+
+    int length = (end - start); // count the total length of the array
+
+    if (length < 5) // if below 5 then do some insertion sort and stop
         return insertion_sort(data, start, end);
-    }
-    else
-    {
-        int median = length / 2;
 
-        if (length % 2)
-            median++;
+    int median = length / 2; // get the median value
 
-        int pivotLeft = (median - 1);
-        int pivotRight = median;
+    if (length % 2) // if odd number increment by one
+        median++;
 
-        int *pivotLeftPointer[pivotLeft];
-        *pivotLeftPointer = &data[0];
+    int pivotLeft = (median - 1); // get the left pivot
+    int pivotRight = median;      // get the right pivot
 
-        int *pivotRightPointer[end];
-        *pivotRightPointer = &data[pivotRight];
+    int *pivotLeftPointer[pivotLeft]; // initialize the left pivot pointer
+    *pivotLeftPointer = &data[0];     // put left slice of the referenced data into the pointer
 
-        median_sort(*pivotLeftPointer, size(pivotLeftPointer));
-        median_sort(*pivotRightPointer, size(pivotLeftPointer));
-        insertion_sort(data, length);
-    }
+    int *pivotRightPointer[end];            // initialize the right pivot pointer
+    *pivotRightPointer = &data[pivotRight]; // put right slice of referenced data into the pointer
+
+    median_sort(*pivotLeftPointer, size(pivotLeftPointer));  // do some recursive
+    median_sort(*pivotRightPointer, size(pivotLeftPointer)); // do some recursive
+    insertion_sort(data, length);                            // finally do some finishing sort
 }
