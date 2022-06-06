@@ -27,6 +27,11 @@ void bubble_sort(int *data, int length)
  */
 void bubble_sort(int *data, int start, int end)
 {
+    /**
+     * Iterate all of the value inside array thoroughly
+     * and swap the value if first index is smaller than the next index
+     */
+
     for (start; start < end; start++)
     {
         for (int j = 0; j < end; j++)

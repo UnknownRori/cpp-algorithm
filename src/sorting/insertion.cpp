@@ -28,6 +28,12 @@ void insertion_sort(int *data, int length)
  */
 void insertion_sort(int *data, int start, int end)
 {
+    /**
+     * Iterate the array if encounter a value that bigger than the previous value
+     * swap the value over and over while decrement the current index
+     * until it's not bigger than previous value
+     */
+
     for (start; start < end; start++)
     {
         int j = start;
