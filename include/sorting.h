@@ -16,6 +16,9 @@
 /*---------------*/
 
 void bubble_sort(int *arr, int length);
+void bubble_sort(int *arr, int start, int end);
+
 void insertion_sort(int *arr, int length);
+void insertion_sort(int *arr, int start, int end);
 
 #endif
