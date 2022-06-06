@@ -10,8 +10,8 @@ int main()
     /*----------------*/
 
     // int data[] = {0, 4, 3, 2, 1, 5, 6};
-    int data[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 11, 13, 14, 12, 15};
-    // int data[] = {1, 2, 3, 6, 5, 4, 8, 7, 9, 10};
+    // int data[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 11, 13, 14, 12, 15};
+    int data[] = {1, 2, 3, 6, 5, 4, 8, 7, 9, 10};
 
     print_array(data, size(data));
 
@@ -23,7 +23,8 @@ int main()
     /*---------------*/
 
     // bubble_sort(data, size(data));
-    insertion_sort(data, size(data));
+    // insertion_sort(data, size(data));
+    median_sort(data, size(data));
 
     /* Finishing up the program */
     auto end = std::chrono::high_resolution_clock::now();
