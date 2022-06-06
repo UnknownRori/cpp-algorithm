@@ -9,15 +9,7 @@
  */
 void insertion_sort(int *data, int length)
 {
-    for (int i = 0; i < length; i++)
-    {
-        int j = i;
-        while (j > 0 && data[j - 1] > data[j])
-        {
-            swap(data, j, j - 1);
-            j--;
-        }
-    }
+    insertion_sort(data, 0, length);
 }
 /**
  * @brief Insertion sort for specific block inside an array
