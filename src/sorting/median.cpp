@@ -37,24 +37,26 @@ void median_sort(int *data, int start, int end)
 
     int length = (end - start); // count the total length of the array
 
-    if (length < 5) // if below 5 then do some insertion sort and stop
+    if (length < 30) // if below 30 then do some insertion sort and stop
         return insertion_sort(data, start, end);
+    else
+    {
+        int median = length / 2; // get the median value
 
-    int median = length / 2; // get the median value
+        if (length % 2) // if odd number increment by one
+            median++;
 
-    if (length % 2) // if odd number increment by one
-        median++;
+        int pivotLeft = (median - 1); // get the left pivot
+        int pivotRight = median;      // get the right pivot
 
-    int pivotLeft = (median - 1); // get the left pivot
-    int pivotRight = median;      // get the right pivot
+        int *pivotLeftPointer[pivotLeft]; // initialize the left pivot pointer
+        *pivotLeftPointer = &data[0];     // put left slice of the referenced data into the pointer
 
-    int *pivotLeftPointer[pivotLeft]; // initialize the left pivot pointer
-    *pivotLeftPointer = &data[0];     // put left slice of the referenced data into the pointer
+        int *pivotRightPointer[end];            // initialize the right pivot pointer
+        *pivotRightPointer = &data[pivotRight]; // put right slice of referenced data into the pointer
 
-    int *pivotRightPointer[end];            // initialize the right pivot pointer
-    *pivotRightPointer = &data[pivotRight]; // put right slice of referenced data into the pointer
-
-    median_sort(*pivotLeftPointer, size(pivotLeftPointer));  // do some recursive
-    median_sort(*pivotRightPointer, size(pivotLeftPointer)); // do some recursive
-    insertion_sort(data, length);                            // finally do some finishing sort
+        median_sort(*pivotLeftPointer, size(pivotLeftPointer));  // do some recursive
+        median_sort(*pivotRightPointer, size(pivotLeftPointer)); // do some recursive
+        insertion_sort(data, length);                            // finally do some finishing sort
+    }
 }
